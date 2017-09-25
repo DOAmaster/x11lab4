@@ -50,12 +50,14 @@ public:
 	int gravity;
 	int jello;
   int grabbed_point;
+  Flt stiffmod;
 	Global() {
 		xres=800;
 		yres=600;
 		gravity = 0;
 		jello = 0;
     grabbed_point = 0;
+    stiffmod = 0;
     
 	}
 } g;
@@ -295,289 +297,219 @@ void setup_jello()
   //sets up springs in a loop stright across
   //work on loop logic
   
-  //int n = 15;
-  /*
-  for ( int i = 0; i < nmasses; i++) {
-    
- 		  spring[nsprings].mass[0] = i;
-		  spring[nsprings].mass[1] = i+1;
-		  spring[nsprings].length = 40.0;
-		  spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-		  nsprings++;
-
-  		spring[nsprings].mass[0] = i;
-	  	spring[nsprings].mass[1] = i+3;
-	  	spring[nsprings].length = 40.0 * sqrt(2);
-	  	spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-	  	nsprings++;
-
-      spring[nsprings].mass[0] = i;
-	  	spring[nsprings].mass[1] = i+4;
-	  	spring[nsprings].length = 40.0;
-	  	spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-	  	nsprings++;
-   
-
-   //check if on the side of jelly
-    if ( i == 3) {
-
-		spring[nsprings].mass[0] = 3;
-		spring[nsprings].mass[1] = 7;
-		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-		nsprings++;
-
-    }
-
-    if ( i == 7) {
-
-		spring[nsprings].mass[0] = 7;
-		spring[nsprings].mass[1] = 11;
-		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-		nsprings++;
-
-    }
-
-    //check if on bottom of jelly
-    
-    if( i == 12) {
-
-  	spring[nsprings].mass[0] = 12;
-		spring[nsprings].mass[1] = 13;
-		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-		nsprings++;
-
-		spring[nsprings].mass[0] = 13;
-		spring[nsprings].mass[1] = 14;
-		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-		nsprings++;
-
-		spring[nsprings].mass[0] = 14;
-		spring[nsprings].mass[1] = 15;
-		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
-		nsprings++;
-
-
-    }
-
-  } 
-  */
+ 
 
     //PUT IN LOOP!
 		spring[nsprings].mass[0] = 0;
 		spring[nsprings].mass[1] = 1;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 0;
 		spring[nsprings].mass[1] = 4;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 0;
 		spring[nsprings].mass[1] = 5;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 	
 		spring[nsprings].mass[0] = 1;
 		spring[nsprings].mass[1] = 5;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 1;
 		spring[nsprings].mass[1] = 2;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 1;
 		spring[nsprings].mass[1] = 6;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 2;
 		spring[nsprings].mass[1] = 3;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 2;
 		spring[nsprings].mass[1] = 6;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 2;
 		spring[nsprings].mass[1] = 7;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 3;
 		spring[nsprings].mass[1] = 7;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 4;
 		spring[nsprings].mass[1] = 5;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 
 		spring[nsprings].mass[0] = 4;
 		spring[nsprings].mass[1] = 8;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 4;
 		spring[nsprings].mass[1] = 9;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
     
 		spring[nsprings].mass[0] = 5;
 		spring[nsprings].mass[1] = 6;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 5;
 		spring[nsprings].mass[1] = 9;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 5;
 		spring[nsprings].mass[1] = 10;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 6;
 		spring[nsprings].mass[1] = 7;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 6;
 		spring[nsprings].mass[1] = 10;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 6;
 		spring[nsprings].mass[1] = 11;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 7;
 		spring[nsprings].mass[1] = 11;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 8;
 		spring[nsprings].mass[1] = 9;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 8;
 		spring[nsprings].mass[1] = 12;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 8;
 		spring[nsprings].mass[1] = 13;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 9;
 		spring[nsprings].mass[1] = 10;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 9;
 		spring[nsprings].mass[1] = 13;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 9;
 		spring[nsprings].mass[1] = 14;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 10;
 		spring[nsprings].mass[1] = 11;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 10;
 		spring[nsprings].mass[1] = 14;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 10;
 		spring[nsprings].mass[1] = 15;
 		spring[nsprings].length = 40.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 11;
 		spring[nsprings].mass[1] = 15;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 12;
 		spring[nsprings].mass[1] = 13;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 +0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 13;
 		spring[nsprings].mass[1] = 14;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1+ g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 14;
 		spring[nsprings].mass[1] = 15;
 		spring[nsprings].length = 40.0;
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1+ g.stiffmod;
 		nsprings++;
 
-    //sherr spring across the entire jelly 
+    		//sherr spring across the entire jelly 
 		spring[nsprings].mass[0] = 0;
 		spring[nsprings].mass[1] = 15;
 		spring[nsprings].length = 120.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1 + g.stiffmod;
 		nsprings++;
 
 		spring[nsprings].mass[0] = 3;
 		spring[nsprings].mass[1] = 12;
 		spring[nsprings].length = 120.0 * sqrt(2);
-		spring[nsprings].stiffness = rnd() * 0.2 + 0.1;
+		spring[nsprings].stiffness = rnd() * 0.2 + 0.1+ g.stiffmod;;
 		nsprings++;
 
 
@@ -847,6 +779,23 @@ int check_keys(XEvent *e)
 		case XK_2:
 			pull += 15;
 			break;
+		case XK_7:
+			if (g.stiffmod > .15){
+			g.stiffmod -= .15;
+				if (g.stiffmod <= 0.0) {
+					g.stiffmod = 0.25;
+				}
+			}
+			break;
+		case XK_8:
+			if (g.stiffmod < 1){
+			g.stiffmod += .15;
+				if (g.stiffmod >= 1.0) { 
+					g.stiffmod = 0.90;
+				}
+			}
+			break;
+
 		case XK_j:
 			g.jello ^= 1;
 			if (g.jello) {
@@ -1003,6 +952,10 @@ void showMenu()
 	x11.drawString(10, y, "G - gravity");
 	y += 16;
 	x11.drawString(10, y, "J - Jello cube");
+	y += 16;
+	x11.drawString(10, y, "7 - Jello cube increase stiffness");
+	y += 16;
+	x11.drawString(10, y, "8 - Jello cube decrease stiffness");
 	y += 16;
 	x11.drawString(10, y, "Arrow keys - move sphere");
 	y += 16;
